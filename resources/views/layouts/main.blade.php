@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="{{asset('roasting/css/style.css')}}">
 <link rel="shortcut icon" href="{{asset('roasting/images/favicon.ico')}}" type="image/x-icon">
 <link rel="icon" href="{{asset('roasting/images/favicon.ico')}}" type="image/x-icon">
-
+@yield('cssSelect2')
+@yield('jsSelect2')
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta property="og:title" content="SablonBalon.com - Perusahaan Sablon Balon No 1 Di Indonesia" />
@@ -85,10 +86,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			</div>
 		</div>
 	</div>
-	<!--banner-->
-	<!--content-->
 	  @yield('content')
-		<!--footer-->
 			<div class="footer-w3l">
 				<div class="container">
 					<div class="footer-grids">
@@ -133,8 +131,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					</div>
 				</div>
 			</div>
-		<!--footer-->
-		<!--copy-->
 			<div class="copy-section">
 				<div class="container">
 					<div class="footer-top">
@@ -142,6 +138,5 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					</div>
 				</div>
 			</div>
-		<!--copy-->
 </body>
 </html>
