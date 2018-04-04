@@ -6,7 +6,7 @@
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -273,7 +273,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
@@ -1101,7 +1101,7 @@ pre code {
     width: 75%;
   }
   .col-md-8 {
-    width: 66.66666667%;
+    width: 100.66666667%;
   }
   .col-md-7 {
     width: 58.33333333%;
@@ -1114,6 +1114,9 @@ pre code {
   }
   .col-md-4 {
     width: 33.33333333%;
+  }
+  .col-md-13 {
+    width: 100%;
   }
   .col-md-3 {
     width: 25%;
@@ -2376,9 +2379,8 @@ input[type="button"].btn-block {
 @font-face {
   font-family: 'Glyphicons Halflings';
 
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
- 
+  src: url('../../roasting/fonts/glyphicons-halflings-regular.eot');
+  src: url('../../roasting/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../../roasting/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../../roasting/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../../roasting/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -5553,7 +5555,7 @@ button.close {
   width: 12px;
   height: 12px;
   margin: 0;
-  background-color: url(../images/pagenate.png) no-repeat 0px 0px;
+  background-color: url(../../roasting/images/pagenate.png) no-repeat 0px 0px;
 }
 .carousel-caption {
   position: absolute;
