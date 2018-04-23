@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/contactUs', function () {
+    return view('contactUs');
+});
+
 Route::post('/login/auth', 'LoginController@auth');
 Route::get('/MainMenu',[
    'middleware' => 'session',
