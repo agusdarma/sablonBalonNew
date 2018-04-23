@@ -9,7 +9,6 @@
 <link rel="shortcut icon" href="{{asset('roasting/images/favicon.ico')}}" type="image/x-icon">
 <link rel="icon" href="{{asset('roasting/images/favicon.ico')}}" type="image/x-icon">
 @yield('cssSelect2')
-@yield('jsSelect2')
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta property="og:title" content="SablonBalon.com - Perusahaan Sablon Balon No 1 Di Indonesia" />
@@ -89,5 +88,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					</div>
 				</div>
 			</div>
+      @yield('jsSelect2')
 </body>
 </html>

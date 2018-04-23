@@ -1,5 +1,15 @@
 <?php
    return [
+     'contact.name' => 'Name',
+     'contact.email' => 'Email',
+     'contact.phone' => 'Phone',
+     'contact.subject' => 'Subject',
+     'contact.message' => 'Message',
+     'contact.success.added' => 'Contact was successfully added!',
+
+
+
+
       'form.required' => '* Required',
       'button.submit' => 'Submit',
       'button.add.new.user' => 'Add New User',

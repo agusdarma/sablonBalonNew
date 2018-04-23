@@ -15,13 +15,24 @@
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
+// home page
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/contactUs', function () {
-    return view('contactUs');
-});
+// contact page
+Route::get('/contactUs', 'ContactController@view');
+
+Route::post('/contactUs/send',[
+   'uses' => 'ContactController@send',
+]);
+
+// Route::get('/contactUs', function () {
+//     return view('contactUs');
+// });
+
+// Logout
+
 
 Route::post('/login/auth', 'LoginController@auth');
 Route::get('/MainMenu',[

@@ -54,27 +54,36 @@
 						<div class="col-md-6 contact-grid">
 							<h4>Your Message</h4>
 							<span>Please send your message below.</span>
-							<form action="#" method="post">
-								<label>Name</label>
-								<input type="text" name="Name" placeholder="Your name" required>
+							<form id="contact_form" >
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" >
+                <p class="errorGeneral text-center alert alert-danger hidden"></p>
+								<label for="name">{{ __('lang.contact.name') }} </label>
+								<input id="name" type="text" name="name" placeholder="Your name" required>
+                <p class="errorName text-center alert alert-danger hidden"></p>
 								<div class="row">
 									<div class="col-md-6 row-grid">
-									<label>Email</label>
-									<input type="text" name="Email" placeholder="Email address" required>
+									<label for="email">{{ __('lang.contact.email') }} </label>
+									<input id="email" type="text" name="email" placeholder="Email address" required>
+                  <p class="errorEmail text-center alert alert-danger hidden"></p>
 									</div>
 										<div class="col-md-6 row-grid">
-										<label>Phone</label>
-									<input type="text" name="Phone" placeholder="Phone number" required>
+										<label for="phone">{{ __('lang.contact.phone') }} </label>
+									<input id="phone" type="text" name="phone" placeholder="Phone number" required>
+                  <p class="errorPhone text-center alert alert-danger hidden"></p>
 									</div>
 									<div class="clearfix"></div>
 								</div>
-								<label>Subject</label>
-								<input type="text" name="Subject" placeholder="Subject" required>
+								<label for="subject">{{ __('lang.contact.subject') }} </label>
+								<input id="subject" type="text" name="subject" placeholder="Subject" required>
+                <p class="errorSubject text-center alert alert-danger hidden"></p>
 								<div class="row1">
-								<label>Message</label>
-								<textarea placeholder="Message" name="Message" ></textarea>
+								<label for="message">{{ __('lang.contact.message') }} </label>
+								<textarea id="message" placeholder="Message" name="message" ></textarea>
+                <p class="errorMessage text-center alert alert-danger hidden"></p>
 								</div>
-								<input type="submit" value="Send message">
+                <div class="box-footer">
+                  <button type="button" class="btn btn-success add">{{ __('lang.button.submit') }}</button>
+                </div>
 							</form>
 						</div>
 						<div class="col-md-6 contact-grid">
@@ -84,7 +93,7 @@
 								<h4>Timings</h4>
 								<div class="cont-info">
 									<h5>Monday - Sunday</h5>
-									<p>08:00 AM - 23:00 PM</p>									
+									<p>08:00 AM - 23:00 PM</p>
 								</div>
 							</div>
 							<div class="clearfix"></div>
@@ -92,7 +101,93 @@
 						<div class="clearfix"></div>
 					</div>
 			</div>
-			<!--contact-->
 		</div>
-		<!--content-->
+@endsection
+@section('jsSelect2')
+<script src="{{asset('toastr/js/toastr.min.js')}}"></script>
+<script type="text/javascript">
+    function clearInputAdd() {
+      $('#name').val('');
+      $('#email').val('');
+      $('#phone').val('');
+      $('#subject').val('');
+      $('#message').val('');
+
+    }
+
+    function hiddenError() {
+      $('.errorName').addClass('hidden');
+      $('.errorEmail').addClass('hidden');
+      $('.errorPhone').addClass('hidden');
+      $('.errorSubject').addClass('hidden');
+      $('.errorMessage').addClass('hidden');
+      $('.errorGeneral').addClass('hidden');
+
+
+    };
+
+    $('.box-footer').on('click', '.add', function() {
+      // console.log('masuk sini');
+      // window.alert('agus');
+      var form = document.forms.namedItem("contact_form");
+      var formdata = new FormData(form);
+        hiddenError();
+        $.ajax({
+              async: true,
+              type: "POST",
+              dataType: "json",
+              contentType: false,
+              url: '{{ url( '/contactUs/send' ) }}',
+              data: formdata,
+              processData: false,
+              success: function(data) {
+                hiddenError();
+                  if (data.rc!=0) {
+                      if (data.general) {
+                          $('.errorGeneral').removeClass('hidden');
+                          $('.errorGeneral').text(data.general);
+                      }
+                      if (data.errors.name) {
+                          $('.errorName').removeClass('hidden');
+                          $('.errorName').text(data.errors.name[0]);
+                      }
+                      if (data.errors.email) {
+                          $('.errorEmail').removeClass('hidden');
+                          $('.errorEmail').text(data.errors.email[0]);
+                      }
+                      if (data.errors.phone) {
+                          $('.errorPhone').removeClass('hidden');
+                          $('.errorPhone').text(data.errors.phone[0]);
+                      }
+                      if (data.errors.subject) {
+                          $('.errorSubject').removeClass('hidden');
+                          $('.errorSubject').text(data.errors.subject[0]);
+                      }
+                      if (data.errors.message) {
+                          $('.errorMessage').removeClass('hidden');
+                          $('.errorMessage').text(data.errors.message[0]);
+                      }
+                  } else {
+                      toastr.success(data.message, 'Success Alert', {timeOut: 2000});
+                      clearInputAdd();
+                  }
+              },
+              error: function(request, status, err) {
+                  if (status == "timeout") {
+                      // console.log("timeout");
+                      $('.errorMessage').removeClass('hidden');
+                      $('.errorMessage').text('{{ __('lang.msg.ajax.timeout') }}');
+                  } else {
+                      // console.log("error: " + request + status + err);
+                      $('.errorMessage').removeClass('hidden');
+                      $('.errorMessage').text("error: " + request + status + err);
+                  }
+              },
+              timeout: 10000
+          });
+    });
+  </script>
+@endsection
+@section('cssSelect2')
+<link rel="stylesheet" href="{{asset('toastr/css/toastr.min.css')}}">
 @endsection

@@ -1,0 +1,11 @@
+CREATE TABLE contact
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  name Varchar(30),
+  email Varchar(100),
+  phone_no Varchar(32),
+	subject Varchar(60),
+	message Varchar(300),
+  created_on Datetime NOT NULL,  
+ PRIMARY KEY (id)
+);
