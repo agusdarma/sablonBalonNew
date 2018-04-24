@@ -10,6 +10,9 @@ class Constants
     public static function MAX_INVALID_LOGIN(){
         return '1';
     }
+    public static function FEATURE_CONTACT_US(){
+        return '3';
+    }
     public static function CONSTANTS_SESSION_LOGIN(){
         return 'SESSION_LOGIN';
     }

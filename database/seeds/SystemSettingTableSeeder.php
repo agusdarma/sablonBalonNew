@@ -12,11 +12,23 @@ class SystemSettingTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('system_setting')->insert([
-         'setting_desc' => 'Define how many times invalid login is allowed before user id is blocked',
-         'setting_name' => 'MAX INVALID LOGIN',
-         'setting_value' => '3',
-         'updated_by' => '1',
-       ]);
+      DB::table('system_setting')->insert([
+       'setting_desc' => 'Define how many times invalid login is allowed before user id is blocked',
+       'setting_name' => 'MAX INVALID LOGIN',
+       'setting_value' => '3',
+       'updated_by' => '1',
+     ]);
+     DB::table('system_setting')->insert([
+      'setting_desc' => 'Define required minimum character when creating password',
+      'setting_name' => 'MIN LENGTH PASSWORD',
+      'setting_value' => '8',
+      'updated_by' => '1',
+    ]);
+  DB::table('system_setting')->insert([
+        'setting_desc' => 'Setting Contact us Active or Not',
+        'setting_name' => 'FEATURE_CONTACT_US',
+        'setting_value' => '1',
+        'updated_by' => '1',
+      ]);
     }
 }

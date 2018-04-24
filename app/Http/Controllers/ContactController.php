@@ -42,6 +42,9 @@ class ContactController extends Controller
            Log::debug(Response::json($response));
            return Response::json($response);
     }
+    $ResultDB = DB::select('select * from system_setting where id = :id', ['id' => Constants::FEATURE_CONTACT_US()]);
+    $featureContactUs = $ResultDB[0]->setting_value;
+    Log::info('$featureContactUs : '.$featureContactUs);
     $name = $request->name;
     $email = $request->email;
     $phone = $request->phone;
