@@ -58,23 +58,23 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
                 <p class="errorGeneral text-center alert alert-danger hidden"></p>
 								<label for="name">{{ __('lang.contact.name') }} </label>
-								<input id="name" type="text" name="name" placeholder="Your name" required>
+								<input id="name" type="text" name="name" placeholder="Your name">
                 <p class="errorName text-center alert alert-danger hidden"></p>
 								<div class="row">
 									<div class="col-md-6 row-grid">
 									<label for="email">{{ __('lang.contact.email') }} </label>
-									<input id="email" type="text" name="email" placeholder="Email address" required>
+									<input id="email" type="text" name="email" placeholder="Email address">
                   <p class="errorEmail text-center alert alert-danger hidden"></p>
 									</div>
 										<div class="col-md-6 row-grid">
 										<label for="phone">{{ __('lang.contact.phone') }} </label>
-									<input id="phone" type="text" name="phone" placeholder="Phone number" required>
+									<input id="phone" type="text" name="phone" placeholder="Phone number">
                   <p class="errorPhone text-center alert alert-danger hidden"></p>
 									</div>
 									<div class="clearfix"></div>
 								</div>
 								<label for="subject">{{ __('lang.contact.subject') }} </label>
-								<input id="subject" type="text" name="subject" placeholder="Subject" required>
+								<input id="subject" type="text" name="subject" placeholder="Subject">
                 <p class="errorSubject text-center alert alert-danger hidden"></p>
 								<div class="row1">
 								<label for="message">{{ __('lang.contact.message') }} </label>

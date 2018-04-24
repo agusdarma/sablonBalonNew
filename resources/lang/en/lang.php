@@ -1,5 +1,8 @@
 <?php
    return [
+     'msg.ajax.timeout' => 'Request timeout, please submit again.',
+
+
      'contact.name' => 'Name',
      'contact.email' => 'Email',
      'contact.phone' => 'Phone',

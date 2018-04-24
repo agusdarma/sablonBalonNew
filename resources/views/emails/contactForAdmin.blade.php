@@ -175,7 +175,7 @@
                     <td height="35" class="em_height">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; font-weight:bold; line-height:18px; color:#30373b;">Welcome {{$contactUsData->name}}</td>
+                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; font-weight:bold; line-height:18px; color:#30373b;">Welcome Admin</td>
                   </tr>
                   <tr>
                     <td height="22" style="font-size:1px; line-height:1px;">&nbsp;</td>
@@ -184,8 +184,12 @@
                     <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; line-height:22px; color:#999999;">Thanks for contacting us!<br class="em_hide"/>
-                      Your new contact has been created and someone will respond shortly.<br class="em_hide" />
+                    <td align="center" style="font-family:'Open Sans', Arial, sans-serif; font-size:15px; line-height:22px; color:#999999;">Name : {{$contactUsData->name}}<br class="em_hide"/>
+                      Phone : {{$contactUsData->phone}}<br class="em_hide" />
+                      Email : {{$contactUsData->email}}<br class="em_hide" />
+                      Subject : {{$contactUsData->subject}}<br class="em_hide" />
+                      Message : {{$contactUsData->message}}<br class="em_hide" />
+                      Please for all admin, follow up this customer.<br class="em_hide" />
                       Sincerely,
                       SablonBalon.com<br class="em_hide" />
                     </td>

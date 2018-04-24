@@ -5,7 +5,9 @@ use Constants;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use DB;
-use App\Mail\ContactMail; // <- add this line
+use App\Data\ContactUsData;
+use App\Mail\ContactMail;
+use App\Mail\ContactForAdminMail;
 // use DataTables;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\MessageBag;
@@ -61,13 +63,20 @@ class ContactController extends Controller
         // notif e-mail
         Log::info('Send notif email '.$email);
         Log::info('Send notif name '.$name);
-        // Mail::send('emails.hello', array('guest' => $name), function($message)
-        // {
-        //     $message->to('agusdk2011@gmail.com');
-        //     $message->subject('test2');
-        //
-        // });
-        Mail::to($email)->send(new ContactMail('ini adalah subject'));
+
+        $contactUsData = $app->make('ContactUsData');
+        $contactUsData->name = $name;
+        $contactUsData->email = $email;
+        $contactUsData->phone = $phone;
+        $contactUsData->subject = $subject;
+        $contactUsData->message = $message;
+        Log::debug(Response::json($contactUsData));
+        $to = explode(',', env('MAIL_ADMIN_EMAILS'));
+        // send email to user
+        Mail::to($contactUsData->email)->Send(new ContactMail($contactUsData));
+        // send to admin SablonBalon
+        Mail::to($to)->Send(new ContactForAdminMail($contactUsData));
+
 
         // DB::rollback();
         $response = array('level' => Constants::SYS_MSG_LEVEL_SUCCESS(),

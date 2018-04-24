@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ContactMail extends Mailable
+class ContactForAdminMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $contactUsData;
@@ -30,6 +30,6 @@ class ContactMail extends Mailable
     {
         return $this->subject($this->contactUsData->subject)
                     // ->to($this->contactUsData->email)
-                    ->view('emails.contact');
+                    ->view('emails.contactForAdmin');
     }
 }
