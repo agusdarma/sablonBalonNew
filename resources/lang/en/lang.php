@@ -78,6 +78,7 @@
       'rc.3' => 'Session Expired, Please Relogin.',
       'rc.4' => 'User inactive.',
       'rc.5' => 'User blocked.',
+      'rc.6' => 'Contact us temporary off.',
       'rc.98' => 'System Unknown Error'
    ];
 ?>

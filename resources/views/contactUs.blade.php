@@ -143,9 +143,9 @@
               success: function(data) {
                 hiddenError();
                   if (data.rc!=0) {
-                      if (data.general) {
+                      if (data.errors.general) {
                           $('.errorGeneral').removeClass('hidden');
-                          $('.errorGeneral').text(data.general);
+                          $('.errorGeneral').text(data.errors.general);
                       }
                       if (data.errors.name) {
                           $('.errorName').removeClass('hidden');
@@ -175,12 +175,12 @@
               error: function(request, status, err) {
                   if (status == "timeout") {
                       // console.log("timeout");
-                      $('.errorMessage').removeClass('hidden');
-                      $('.errorMessage').text('{{ __('lang.msg.ajax.timeout') }}');
+                      $('.errorGeneral').removeClass('hidden');
+                      $('.errorGeneral').text('{{ __('lang.msg.ajax.timeout') }}');
                   } else {
                       // console.log("error: " + request + status + err);
-                      $('.errorMessage').removeClass('hidden');
-                      $('.errorMessage').text("error: " + request + status + err);
+                      $('.errorGeneral').removeClass('hidden');
+                      $('.errorGeneral').text("error: " + request + status + err);
                   }
               },
               timeout: 10000

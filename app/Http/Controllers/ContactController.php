@@ -45,6 +45,15 @@ class ContactController extends Controller
     $ResultDB = DB::select('select * from system_setting where id = :id', ['id' => Constants::FEATURE_CONTACT_US()]);
     $featureContactUs = $ResultDB[0]->setting_value;
     Log::info('$featureContactUs : '.$featureContactUs);
+
+    // cek apakah fitur contact us di aktifkan atau tidak
+    if($featureContactUs<>1){
+      $response = array('errors' => array('general' => Constants::SYS_MSG_CONTACT_US_OFF()),
+      'rc' => Constants::SYS_RC_CONTACT_US_OFF());
+      Log::debug(Response::json($response));
+      return Response::json($response);
+    }
+
     $name = $request->name;
     $email = $request->email;
     $phone = $request->phone;

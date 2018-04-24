@@ -1,5 +1,18 @@
 <?php
    return [
+
+     'msg.ajax.timeout' => 'Request timeout, please submit again.',
+
+
+     'contact.name' => 'Name',
+     'contact.email' => 'Email',
+     'contact.phone' => 'Phone',
+     'contact.subject' => 'Subject',
+     'contact.message' => 'Message',
+     'contact.success.added' => 'Contact was successfully added!',
+
+
+     
       'form.required' => '* Wajib Diisi',
       'button.submit' => 'Submit',
       'button.add.new.user' => 'Tambah User Baru',
@@ -65,6 +78,7 @@
       'rc.3' => 'Session Expired, Please Relogin.',
       'rc.4' => 'User tidak aktif.',
       'rc.5' => 'User terblokir.',
+      'rc.6' => 'Contact us temporary off.',
       'rc.98' => 'Sistem Error'
    ];
 ?>
