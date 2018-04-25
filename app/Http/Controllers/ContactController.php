@@ -32,6 +32,7 @@ class ContactController extends Controller
             'phone' => 'required',
             'subject' => 'required',
             'message' => 'required',
+            'g-recaptcha-response' => 'required|captcha'
 
     ]);
     // Jika input gagal redirect ke login page

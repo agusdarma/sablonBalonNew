@@ -81,8 +81,15 @@
 								<textarea id="message" placeholder="Message" name="message" ></textarea>
                 <p class="errorMessage text-center alert alert-danger hidden"></p>
 								</div>
-                <div class="box-footer">
-                  <button type="button" class="btn btn-success add">{{ __('lang.button.submit') }}</button>
+                <div class="row1">
+                  <div class="g-recaptcha"
+                             data-sitekey="{{env('NOCAPTCHA_SITEKEY')}}">
+                  </div>
+                </div>
+                <div class="row1">
+                  <div class="box-footer">
+                    <button type="button" class="btn btn-success add">{{ __('lang.button.submit') }}</button>
+                  </div>
                 </div>
 							</form>
 						</div>
@@ -105,6 +112,7 @@
 @endsection
 @section('jsSelect2')
 <script src="{{asset('toastr/js/toastr.min.js')}}"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript">
     function clearInputAdd() {
       $('#name').val('');
@@ -112,7 +120,6 @@
       $('#phone').val('');
       $('#subject').val('');
       $('#message').val('');
-
     }
 
     function hiddenError() {
@@ -128,7 +135,6 @@
 
     $('.box-footer').on('click', '.add', function() {
       // console.log('masuk sini');
-      // window.alert('agus');
       var form = document.forms.namedItem("contact_form");
       var formdata = new FormData(form);
         hiddenError();
@@ -146,6 +152,10 @@
                       if (data.errors.general) {
                           $('.errorGeneral').removeClass('hidden');
                           $('.errorGeneral').text(data.errors.general);
+                      }
+                      if (data.errors['g-recaptcha-response']) {
+                          $('.errorGeneral').removeClass('hidden');
+                          $('.errorGeneral').text(data.errors['g-recaptcha-response']);
                       }
                       if (data.errors.name) {
                           $('.errorName').removeClass('hidden');
@@ -167,6 +177,7 @@
                           $('.errorMessage').removeClass('hidden');
                           $('.errorMessage').text(data.errors.message[0]);
                       }
+                      grecaptcha.reset();
                   } else {
                       toastr.success(data.message, 'Success Alert', {timeOut: 2000});
                       clearInputAdd();
@@ -174,11 +185,9 @@
               },
               error: function(request, status, err) {
                   if (status == "timeout") {
-                      // console.log("timeout");
                       $('.errorGeneral').removeClass('hidden');
                       $('.errorGeneral').text('{{ __('lang.msg.ajax.timeout') }}');
                   } else {
-                      // console.log("error: " + request + status + err);
                       $('.errorGeneral').removeClass('hidden');
                       $('.errorGeneral').text("error: " + request + status + err);
                   }

@@ -99,9 +99,15 @@ return [
     |
     */
 
+    // 'custom' => [
+    //     'attribute-name' => [
+    //         'rule-name' => 'custom-message',
+    //     ],
+    // ],
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'g-recaptcha-response' => [
+            'required' => 'Harap verifikasi bahwa anda bukan robot.',
+            'captcha' => 'Kesalahan captcha! coba lagi nanti atau hubungi admin situs.',
         ],
     ],
 
