@@ -9,3 +9,15 @@ CREATE TABLE contact
   created_on Datetime NOT NULL,  
  PRIMARY KEY (id)
 );
+
+CREATE TABLE label_setting
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  label_name Varchar(30) NOT NULL,
+  label_value Varchar(100) NOT NULL,
+  updated_on Datetime NOT NULL,  
+  updated_by Int NOT NULL,  
+ PRIMARY KEY (id)
+);
+
+insert into label_setting (label_name,label_value,updated_on,updated_by) values('Phone No','+62 817-4816-268',CURRENT_TIMESTAMP,1);
