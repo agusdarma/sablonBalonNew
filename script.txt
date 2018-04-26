@@ -14,10 +14,13 @@ CREATE TABLE label_setting
 (
   id Int NOT NULL AUTO_INCREMENT,
   label_name Varchar(30) NOT NULL,
-  label_value Varchar(100) NOT NULL,
+  label_value Varchar(512) NOT NULL,
   updated_on Datetime NOT NULL,  
   updated_by Int NOT NULL,  
  PRIMARY KEY (id)
 );
 
 insert into label_setting (label_name,label_value,updated_on,updated_by) values('Phone No','+62 817-4816-268',CURRENT_TIMESTAMP,1);
+insert into label_setting (label_name,label_value,updated_on,updated_by) values('Address','Jalan Duri Intan, Jakarta Barat, Indonesia, 11510',CURRENT_TIMESTAMP,1);
+insert into label_setting (label_name,label_value,updated_on,updated_by) values('Working Hour','Mon-Sun 8:00 am to 23:00 pm',CURRENT_TIMESTAMP,1);
+insert into label_setting (label_name,label_value,updated_on,updated_by) values('Copyright','2013 - 2016 SablonBalon. All rights reserved | Design by W3layouts',CURRENT_TIMESTAMP,1);
