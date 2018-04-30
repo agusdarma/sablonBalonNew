@@ -16,9 +16,7 @@
 // Route::get('/home', 'HomeController@index')->name('home');
 
 // home page
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'MainMenuController@MainMenu');
 
 // contact page
 Route::get('/contactUs', 'ContactController@view');
@@ -34,37 +32,37 @@ Route::post('/contactUs/send',[
 // Logout
 
 
-Route::post('/login/auth', 'LoginController@auth');
-Route::get('/MainMenu',[
-   'middleware' => 'session',
-   'uses' => 'MainMenuController@MainMenu',
-]);
-Route::get('/Logout', 'LoginController@logout');
-Route::get('/UserData',[
-   'middleware' => 'session',
-   'uses' => 'UserDataController@init',
-]);
-Route::post('/UserData/Add',[
-   'middleware' => 'session',
-   'uses' => 'UserDataController@add',
-]);
-Route::get('/UserData/view',[
-   'middleware' => 'session',
-   'uses' => 'UserDataController@view',
-]);
-Route::get('/UserData/view/data',[
-   'middleware' => 'session',
-   'uses' => 'UserDataController@getListUserData',
-])->name('getListUserData');
-Route::post('/UserData/AddAjax',[
-   'middleware' => 'session',
-   'uses' => 'UserDataController@addAjax',
-]);
-Route::get('/UserData/showEdit', [
-    'middleware' => 'session',
-    'uses' => 'UserDataController@showEdit',
-]);
-Route::post('/UserData/editProcess', [
-    'middleware' => 'session',
-    'uses' => 'UserDataController@editProcess',
-]);
+// Route::post('/login/auth', 'LoginController@auth');
+// Route::get('/MainMenu',[
+//    'middleware' => 'session',
+//    'uses' => 'MainMenuController@MainMenu',
+// ]);
+// Route::get('/Logout', 'LoginController@logout');
+// Route::get('/UserData',[
+//    'middleware' => 'session',
+//    'uses' => 'UserDataController@init',
+// ]);
+// Route::post('/UserData/Add',[
+//    'middleware' => 'session',
+//    'uses' => 'UserDataController@add',
+// ]);
+// Route::get('/UserData/view',[
+//    'middleware' => 'session',
+//    'uses' => 'UserDataController@view',
+// ]);
+// Route::get('/UserData/view/data',[
+//    'middleware' => 'session',
+//    'uses' => 'UserDataController@getListUserData',
+// ])->name('getListUserData');
+// Route::post('/UserData/AddAjax',[
+//    'middleware' => 'session',
+//    'uses' => 'UserDataController@addAjax',
+// ]);
+// Route::get('/UserData/showEdit', [
+//     'middleware' => 'session',
+//     'uses' => 'UserDataController@showEdit',
+// ]);
+// Route::post('/UserData/editProcess', [
+//     'middleware' => 'session',
+//     'uses' => 'UserDataController@editProcess',
+// ]);

@@ -13,6 +13,18 @@ class Constants
     public static function FEATURE_CONTACT_US(){
         return '3';
     }
+    public static function LABEL_SETTING_PHONE_NO(){
+        return 'Phone No';
+    }
+    public static function LABEL_SETTING_ADDRESS(){
+        return 'Address';
+    }
+    public static function LABEL_SETTING_WORKING_HOUR(){
+        return 'Working Hour';
+    }
+    public static function LABEL_SETTING_COPYRIGHT(){
+        return 'Copyright';
+    }
     public static function CONSTANTS_SESSION_LOGIN(){
         return 'SESSION_LOGIN';
     }
