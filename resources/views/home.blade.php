@@ -1,15 +1,15 @@
 @extends('layouts.main')
 <?php use App\Http\Controllers\MainMenuController; ?>
+<?php $labelSettingPhoneNo = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_PHONE_NO()); ?>
+<?php $labelSettingAddress = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_ADDRESS()); ?>
+<?php $labelSettingWorkingHour = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_WORKING_HOUR()); ?>
+<?php $labelSettingCopyright = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_COPYRIGHT()); ?>
 @section('header')
 <div  data-vide-bg="poster:{{asset('roasting/video/vd')}}" data-vide-options="posterType: jpg">
   <div class="banner">
     <div class="header-top">
       <div class="container">
         <div class="indicat">
-          <?php $labelSettingPhoneNo = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_PHONE_NO()); ?>
-          <?php $labelSettingAddress = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_ADDRESS()); ?>
-          <?php $labelSettingWorkingHour = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_WORKING_HOUR()); ?>
-          <?php $labelSettingCopyright = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_COPYRIGHT()); ?>
           <span><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>{{ $labelSettingAddress->label_value }}</span>
         </div>
         <div class="detail">

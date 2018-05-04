@@ -34,6 +34,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300,200' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  
 	<script src="{{asset('roasting/js/jquery.vide.min.js')}}"></script>
   @yield('header')
 	  @yield('content')

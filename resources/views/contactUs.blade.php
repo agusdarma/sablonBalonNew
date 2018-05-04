@@ -1,16 +1,20 @@
 @extends('layouts.main')
-
+<?php use App\Http\Controllers\MainMenuController; ?>
+<?php $labelSettingPhoneNo = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_PHONE_NO()); ?>
+<?php $labelSettingAddress = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_ADDRESS()); ?>
+<?php $labelSettingWorkingHour = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_WORKING_HOUR()); ?>
+<?php $labelSettingCopyright = MainMenuController::getLabelSetting(Constants::LABEL_SETTING_COPYRIGHT()); ?>
 @section('header')
   <div class="banner">
     <div class="header-top">
       <div class="container">
         <div class="indicat">
-          <span><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Jalan Duri Intan, Jakarta Barat, Indonesia, 11510</span>
+          <span><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>{{ $labelSettingAddress->label_value }}</span>
         </div>
         <div class="detail">
           <ul>
-            <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+62 817-4816-268</li>
-            <li><i class="glyphicon glyphicon-time" aria-hidden="true"></i> Mon-Sun 8:00 am to 23:00 pm </li>
+            <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>{{ $labelSettingPhoneNo->label_value }}</li>
+            <li><i class="glyphicon glyphicon-time" aria-hidden="true"></i> {{ $labelSettingWorkingHour->label_value }} </li>
           </ul>
         </div>
         <div class="clearfix"></div>
